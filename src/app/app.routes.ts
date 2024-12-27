@@ -13,16 +13,6 @@ export const routes: Routes = [
       showHeader: true,
     },
   },
-  // {
-  //   path: 'sidebar',
-  //   loadComponent: () =>
-  //     import('./layouts/sidebar/sidebar').then((c) => c.SidebarTemplate),
-  //   data: {
-  //     showHerroBanner: false,
-  //     showSearchBar: true,
-  //     showHeader: true,
-  //   },
-  // },
   {
     path: 'bootstrap',
     loadComponent: () =>
@@ -38,6 +28,17 @@ export const routes: Routes = [
     path: 'button',
     loadComponent: () =>
       import('./component/button/button.template').then((c) => c.ButtonTemplate),
+    data: {
+      showHerroBanner: false,
+      showSearchBar: true,
+      showHeader: false,
+    },
+  },
+  //template button
+  {
+    path: 'form',
+    loadComponent: () =>
+      import('./component/form/form.template').then((c) => c.FormTemplate),
     data: {
       showHerroBanner: false,
       showSearchBar: true,

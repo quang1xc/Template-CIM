@@ -12,7 +12,7 @@ import {RouterModule} from '@angular/router';
     '../../assets/css/animate.min.css',
     '../../assets/css/style.min.css',
     '../../assets/css/theme/default.css',
-    '../../assets/plugins/icon/themify-icons/themify-icons.css',],
+    '../../assets/plugins/icon/themify-icons/themify-icons.css'],
 
 })
 export class SidebarTemplate {

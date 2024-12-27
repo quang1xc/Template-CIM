@@ -16,8 +16,7 @@ import {SidebarTemplate} from './layouts/sidebar/sidebar';
     // Components
   ],
   templateUrl: './app.component.html',
-  styleUrls: [
-  ],
+  styleUrls: [],
 
 })
 export class AppComponent implements OnInit {
