@@ -7,10 +7,7 @@ import {Component} from '@angular/core';
     imports: [
     ],
     templateUrl: './button.template.html',
-    styleUrls: ['./button.template.scss',
-      '../../assets/css/animate.min.css',
-      '../../assets/css/style.min.css',
-      '../../assets/css/theme/default.css'],
+    styleUrls: [],
 
 })
 export class ButtonTemplate {
