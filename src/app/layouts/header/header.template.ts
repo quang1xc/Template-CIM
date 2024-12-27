@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
+import {RouterLink} from '@angular/router';
 
 
 @Component({
-    selector: 'app-amount-buttons',
+    selector: 'app-header',
     standalone: true,
-    imports: [
-    ],
+  imports: [],
     templateUrl: './header.template.html',
-    styleUrls: ['./header.template.scss'],
+    styleUrls: [],
 
 })
 export class HeaderTemplate {

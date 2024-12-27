@@ -581,12 +581,12 @@
 .ti-basketball:before {
 	content: "\e6b9";
 }
-.ti-bar-chart:before {
-	content: "\e6ba";
-}
-.ti-bar-chart-alt:before {
-	content: "\e6bb";
-}
+/*.ti-bar-chart:before {*/
+/*	content: "\e6ba";*/
+/*}*/
+/*.ti-bar-chart-alt:before {*/
+/*	content: "\e6bb";*/
+/*}*/
 .ti-back-right:before {
 	content: "\e6bc";
 }

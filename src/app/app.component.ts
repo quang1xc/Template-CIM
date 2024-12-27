@@ -17,10 +17,6 @@ import {SidebarTemplate} from './layouts/sidebar/sidebar';
   ],
   templateUrl: './app.component.html',
   styleUrls: [
-
-    './assets/css/animate.min.css',
-    './assets/css/style.min.css',
-    './assets/css/theme/default.css'
   ],
 
 })

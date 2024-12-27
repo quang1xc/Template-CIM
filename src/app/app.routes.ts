@@ -26,7 +26,18 @@ export const routes: Routes = [
   {
     path: 'bootstrap',
     loadComponent: () =>
-      import('./component/Bootstrap/bootstrap.template').then((c) => c.BootstrapTemplate),
+      import('./component/bootstrap/bootstrap.template').then((c) => c.BootstrapTemplate),
+    data: {
+      showHerroBanner: false,
+      showSearchBar: true,
+      showHeader: false,
+    },
+  },
+  //template button
+  {
+    path: 'button',
+    loadComponent: () =>
+      import('./component/button/button.template').then((c) => c.ButtonTemplate),
     data: {
       showHerroBanner: false,
       showSearchBar: true,
