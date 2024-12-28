@@ -9,9 +9,8 @@ import {RouterModule} from '@angular/router';
   ],
   templateUrl: './sidebar.html',
   styleUrls: ['./sidebar.scss',
-    '../../assets/css/animate.min.css',
+
     '../../assets/css/style.min.css',
-    '../../assets/css/theme/default.css',
     '../../assets/plugins/icon/themify-icons/themify-icons.css'],
 
 })
