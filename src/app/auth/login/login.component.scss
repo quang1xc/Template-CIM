@@ -1,0 +1,26 @@
+.login {
+  display: flex;
+  height: 100vh;
+}
+.news-feed {
+  background-size: cover;
+  background-position: center;
+}
+.news-feed .news-image {
+  height: 100%;
+  background-image: url('/img/login-bg/login-bg-11.jpg');
+}
+.login-container {
+  flex: 0 0 400px;
+}
+.news-caption{
+  width: calc(100% - 400px);
+  color: #ffffffd9;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 60px 45px;
+  letter-spacing: .25px;
+  z-index: 20;
+  background: linear-gradient(to bottom, #0000, #000);
+}

@@ -1,0 +1,127 @@
+<div id="app" class="app">
+  <div class="login login-with-news-feed">
+    <div class="news-feed col">
+      <div class="news-image"></div>
+      <div class="news-caption fw-light position-absolute  p-4">
+        <h4 class="caption-title"><b>Color</b> Admin App</h4>
+        <p>Download the Color Admin app for iPhone®, iPad®, and Android™. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit.</p>
+      </div>
+    </div>
+
+    <div class="login-container d-flex align-items-center justify-content-center bg-light shadow rounded p-5">
+      <div class="login-content">
+        @if (showFormLogin()) {
+          <div class="login-header mb-4 text-center">
+            <h2 class="brand">Đăng nhập</h2>
+            <small>Bootstrap 5 Responsive Template CIM</small>
+            <div class="icon">
+              <i class="fa fa-sign-in-alt"></i>
+            </div>
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="SignIn()">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control"
+                     id="username" placeholder="Tên đăng nhập" required
+                     formControlName="username">
+              <label for="username">Tên đăng nhập</label>
+              @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
+                <div>
+                  <i class="small text-danger">{{ onErrorMessage('username', loginForm) }}</i>
+                </div>
+              }
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control"
+                     id="password" placeholder="Mật khẩu" required
+                     formControlName="password">
+              <label for="password">Mật khẩu</label>
+              @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                <div>
+                  <i class="small text-danger">{{ onErrorMessage('password',loginForm) }}</i>
+                </div>
+              }
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Remember Me</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+            <div class="mt-3 text-center">
+              Not a member yet? Click <a role="button" (click)="showFormLogin.set(!showFormLogin())"
+                                         class=" text-primary">here</a> to register.
+            </div>
+            <hr class="bg-gray-600 opacity-2">
+            <div class="text-center text-gray-600 mt-2">
+              &copy; Color Admin All Right Reserved 2024
+            </div>
+          </form>
+
+          <!--        // Form register-->
+        } @else {
+          <div class="login-header mb-4 text-center">
+            <h2 class="brand">Đăng ký</h2>
+            <small>Bootstrap 5 Responsive Template CIM</small>
+            <div class="icon">
+              <i class="fa fa-sign-in-alt"></i>
+            </div>
+          </div>
+          <div class="register-content">
+            <form [formGroup]="registerForm" >
+              <div class="mb-3">
+                <label for="usernameRegister"
+                       class="form-label"
+                >Tên đăng nhập <span class="text-danger">*</span></label>
+                <input type="text"
+                       id="usernameRegister"
+                       class="form-control fs-13px" placeholder="Email address" required
+                       formControlName="usernameRegister"
+                />
+                @if (registerForm.get('usernameRegister')?.invalid && registerForm.get('usernameRegister')?.touched) {
+                  <div>
+                    <i class="small text-danger">{{ onErrorMessage('usernameRegister', registerForm) }}</i>
+                  </div>
+                }
+              </div>
+              <div class="mb-4">
+                <label for="passwordRegister" class="form-label"
+                >Mật khẩu <span class="text-danger">*</span></label>
+                <input type="password"
+                       id="passwordRegister"
+                       class="form-control fs-13px" placeholder="Password" required
+                       formControlName="passwordRegister"
+                />
+                @if (registerForm.get('passwordRegister')?.invalid && registerForm.get('passwordRegister')?.touched) {
+                  <div>
+                    <i class="small text-danger">{{ onErrorMessage('passwordRegister',registerForm) }}</i>
+                  </div>
+                }
+              </div>
+              <div class="mb-3">
+                <label for="rePass"
+                       class="form-label"
+                >Nhập lại mật khẩu <span class="text-danger">*</span></label>
+                <input type="email" id="rePass" class="form-control fs-13px" placeholder="Re-enter password" required/>
+              </div>
+
+              <div class="mb-4">
+                <button type="submit" class="btn btn-primary d-block w-100 btn-lg h-45px fs-13px">Sign Up</button>
+              </div>
+              <div class="mb-1">
+                Already a member? Click
+                <a role="button" class="text-primary"
+                   (click)="showFormLogin.set(!showFormLogin())">here</a> to login.
+              </div>
+              <hr class="bg-gray-600 opacity-2"/>
+              <p class="text-center text-gray-600">
+                &copy; Color Admin All Right Reserved 2024
+              </p>
+            </form>
+          </div>
+        }
+        <!--        // End form register-->
+      </div>
+    </div>
+  </div>
+</div>
+

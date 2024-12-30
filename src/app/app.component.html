@@ -1,16 +1,22 @@
+@if (showLogin()) {
+  <app-login></app-login>
+} @else {
+  @if (showHeader()) {
+    <app-header></app-header>
+  }
 
+  <div class="row">
+    @if (showSidebar()) {
+      <div class="col-2">
+        <app-sidebar>
 
-  <app-header></app-header>
+        </app-sidebar>
 
-
-<div class="row">
-    <div class="col-2">
-      <app-sidebar>
-
-      </app-sidebar>
-      <div class="w-100"></div>
+        <div class="w-100"></div>
+      </div>
+    }
+    <div class="col-10">
+      <router-outlet></router-outlet>
     </div>
-  <div class="col-10">
-    <router-outlet></router-outlet>
   </div>
-</div>
+}

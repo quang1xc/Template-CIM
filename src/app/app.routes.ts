@@ -4,6 +4,16 @@ import {SidebarTemplate} from './layouts/sidebar/sidebar';
 
 export const routes: Routes = [
   {
+    path: '',
+    loadComponent: () =>
+      import('./auth/login/login.component').then((c) => c.LoginComponent),
+    data: {
+      showHerroBanner: false,
+      showSearchBar: false,
+      showHeader: false,
+    },
+  },
+  {
     path: 'header',
     loadComponent: () =>
       import('./layouts/header/header.template').then((c) => c.HeaderTemplate),
@@ -29,12 +39,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./component/button/button.template').then((c) => c.ButtonTemplate),
     data: {
-      showHerroBanner: false,
-      showSearchBar: true,
-      showHeader: false,
+      showHeader: true,
+      showSidebar: true,
     },
   },
-  //template button
+  //template form
   {
     path: 'form',
     loadComponent: () =>
