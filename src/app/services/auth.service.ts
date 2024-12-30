@@ -7,16 +7,17 @@ import {Router} from '@angular/router';
 // Models
 import {IUserInfo} from '../models/user-info.interface';
 import {IResponseData} from '../models/response-data.interface';
-import {IAccount} from '../models/account.interface';
 import {EStorageKey} from '../constants/storage-key.enum';
 // Services
 import {StorageService} from './storage.service';
+
+
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
 
-    private readonly API_URL = 'https://apigw.cashplus.vn';
+    private readonly API_URL = 'http://103.72.98.97';
 
     constructor(
         private httpClient: HttpClient,
@@ -24,9 +25,9 @@ export class AuthService {
         private router: Router
     ) {}
 
-  login(username: string | undefined, password: string | undefined): Observable<IResponseData<IAccount>> {
+    login(username: string | undefined, password: string | undefined): Observable<IResponseData<IUserInfo>> {
         const url = this.API_URL + '/api/auth/adminLogin';
-        return this.httpClient.post<IResponseData<IAccount>>(url, {username, password});
+        return this.httpClient.post<IResponseData<IUserInfo>>(url, {username, password});
     }
 
     logout() {

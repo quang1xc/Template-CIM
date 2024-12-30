@@ -2,14 +2,24 @@
 
 export class IUserInfo {
   avatar: string | undefined = undefined;
-  admin: boolean ;
-  // partner_branches: IPartnerBranch[];
-  partner_branch: any | null;
-  partner_branch_id: string | null;
-  partner_name: string;
-  amount_balance: number;
-  is_partner_branch: boolean;
-  is_partner_branch_admin: boolean;
-  partner_id: string | undefined;
+  allpermissions: string | undefined;
+  full_name: string | undefined;
+  group_id: string | undefined;
+  is_admin: boolean | undefined;
+  is_sysadmin: false | undefined;
+  refresh_token: false | undefined;
+  token: string | undefined;
+  user_id: string | undefined;
+  user_permissions:UserPermissions[] | undefined;
 }
 
+
+export class UserPermissions {
+  id: string | undefined = undefined;
+  actions: [] | undefined;
+  function_code: string | undefined;
+  function_name: string | undefined;
+  path: string | undefined;
+
+
+}

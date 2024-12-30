@@ -8,6 +8,9 @@ import {ConfigService} from '../../services/config.service';
 import {StorageService} from '../../services/storage.service';
 import {AuthService} from '../../services/auth.service';
 import {EStorageKey} from '../../constants/storage-key.enum';
+import {IUserInfo} from '../../models/user-info.interface';
+import {NotificationService} from '../../services/notification.service';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -31,7 +34,9 @@ export class LoginComponent implements OnInit {
     private configService: ConfigService,
     private router: Router,
     private authService: AuthService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private notificationService: NotificationService,
+    private toastr: ToastrService
   ) {
     this.configService._configSubject.next('false');
     this.loginForm = this.formBuilder.group({
@@ -71,46 +76,50 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.login(this.model.username, this.model.password)
         .subscribe({
-          next: (res: { code: string; data: any; }) => {
+          next: (res) => {
             const {code, data} = res;
             if (code === '200') {
               this.storageService.setItem(data.token, EStorageKey.TOKEN);
-              this.storageService.setItem(data.username, EStorageKey.USERNAME);
+              this.storageService.setItem(data?.refresh_token, EStorageKey.REFRESHTOKEN);
+              this.storageService.setItem(data.full_name, EStorageKey.FULLNAME);
               this.storageService.setItem(data.user_id, EStorageKey.USERID);
-              this.storageService.setItem(data.partner_id, EStorageKey.PARTNER_ID);
-              this.storageService.setItem(data.is_partner_admin ? '1' : '0', EStorageKey.IS_ADMIN);
-              this.storageService.setItem(data.is_manage_user ? '1' : '0', EStorageKey.IS_MANAGE);
+              this.storageService.setItem(data.is_admin, EStorageKey.IS_ADMIN);
 
               this.profileData = data;
               if (this.profileData) {
                 this.configService.loadingSubject.next('false');
-                // this.notification.success('Đăng nhập thành công!');
+                // this.notificationService.show('Đăng nhập thành công!','success');
+                this.showSuccess()
                 console.log('thanh cong')
+                return
                 this.router.navigate(['/button']);
               } else {
                 this.configService.loadingSubject.next('false');
               }
             } else {
-              // this.notification.warning(
-              //     'Tên đăng nhập và mật khẩu không đúng. Vui lòng kiểm tra lại!'
+              this.showSuccess();
+              // this.notificationService.show(
+              //     'Tên đăng nhập hoặc mật khẩu không đúng!', 'error',
               // );
             }
           },
           error: (error: { status: number; }) => {
             if (error.status === 500 || error.status === 0) {
-              // this.notification.error(
-              //     error,
-              //     null,
-              //     'Lỗi kết nỗi với server!'
-              // );
+              this.notificationService.show(
+                  'Lỗi kết nỗi với server!', 'error'
+              );
             } else {
-              // this.notification.warning(
-              //     'Tên đăng nhập và mật khẩu không đúng. Vui lòng kiểm tra lại!'
-              // );
+              this.notificationService.show(
+                  'Tên đăng nhập và mật khẩu không đúng. Vui lòng kiểm tra lại!','error'
+              );
             }
           }
         });
     }
+  }
+
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 
   onErrorMessage(controlName: string, formGroup: FormGroup): string {

@@ -1,22 +1,19 @@
-@if (showLogin()) {
-  <app-login></app-login>
-} @else {
-  @if (showHeader()) {
-    <app-header></app-header>
-  }
+<!--<app-message></app-message>-->
 
-  <div class="row">
-    @if (showSidebar()) {
-      <div class="col-2">
-        <app-sidebar>
-
-        </app-sidebar>
-
-        <div class="w-100"></div>
-      </div>
-    }
-    <div class="col-10">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+@if(showHeader()){
+  <app-header></app-header>
 }
+
+<div [className]="showLogin() ? 'w-100' : 'row'">
+  @if(showSidebar()){
+    <div class="col-2">
+      <app-sidebar></app-sidebar>
+      <div class="w-100"></div>
+    </div>
+  }
+  <div [className]="showLogin() ? 'col-12' : 'col-10'">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-notification #notification></app-notification>
+

@@ -12,22 +12,4 @@ export class ConfigService
 {
     _configSubject = new Subject<string>();
     loadingSubject = new Subject<string>();
-    partnerBranchId = new BehaviorSubject<number>(-1);
-    showSidebar = new BehaviorSubject<boolean>(true);
-
-    userInfo = new BehaviorSubject<IUserInfo | null>(null);
-    showPartnerBranches = new BehaviorSubject<boolean>(false);
-    isPartner = new BehaviorSubject<boolean>(false);
-
-
-
-    selectPartnerBranch(partnerBranchId: number) {
-        this.partnerBranchId.next(partnerBranchId);
-    }
-
-    toggleShowSideBar() {
-        this.showSidebar.next(!this.showSidebar.value);
-    }
-
-
 }

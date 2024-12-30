@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Inject, OnInit, signal} from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {StorageService} from '../../services/storage.service';
 
 
 @Component({
@@ -10,6 +11,15 @@ import {RouterLink} from '@angular/router';
     styleUrls: [],
 
 })
-export class HeaderTemplate {
-
+export class HeaderTemplate implements OnInit {
+  username = signal('');
+  constructor(    private storageService: StorageService,
+  ) {
+  }
+  ngOnInit() {
+    const usernameLocal = JSON.stringify(this.storageService.getItem('username'));
+    if (usernameLocal) {
+      this.username.set(usernameLocal);
+    }
+  }
 }

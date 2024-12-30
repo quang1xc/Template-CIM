@@ -1,9 +1,8 @@
 export enum EStorageKey {
     USERNAME = 'username',
+    FULLNAME = 'full_name',
     TOKEN = 'token',
+    REFRESHTOKEN = 'refresh_token',
     USERID = 'userId',
-    PARTNER_ID = 'partnerId',
     IS_ADMIN = 'isAdmin',
-    IS_MANAGE = 'isManageUser',
-    AMOUNT_BALANCE = 'amount_balance'
 }
