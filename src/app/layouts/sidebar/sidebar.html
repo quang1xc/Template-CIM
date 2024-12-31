@@ -1,108 +1,244 @@
 ﻿<!-- BEGIN #sidebar -->
-<div style="height: calc(100vh - 77px)" id="sidebar" class="sidebar sidebar-inverse">
-  <!-- BEGIN scrollbar -->
-  <div data-scrollbar="true" data-height="100%">
-    <!-- BEGIN nav -->
-    <ul class="nav">
-      <li class="nav-profile">
-        <div class="image">
-          <img src="https://cashplus.vn/images/homecashplus/logonew1.png" />
-        </div>
-        <div class="info">
-          <h4>Template CIM</h4>
-          <p>UXUI Frontend Developer</p>
-        </div>
-      </li>
-      <li class="nav-divider"></li>
-      <li class="nav-header">Navigation</li>
-      <li><a href="#"><i class="ti-home"></i><span>Home</span></a></li>
-      <li><a href="#"><i class="ti-pie-chart"></i><span>Analytics</span></a></li>
-      <li class="has-sub">
-        <a href="#">
-          <span class="caret caret-right pull-right"></span>
-          <i class="ti-email"></i>
-          <span>Email <span class="notification">20+</span></span>
-        </a>
-        <ul class="sub-menu">
-          <li><a href="email_inbox.html">Inbox</a></li>
-        </ul>
-      </li>
-      <li class="nav-divider"></li>
-      <li class="nav-header">Components</li>
+@if (!isShowSidebar()) {
+  <div @sidebarAnimation  class="col-2 sidebar sidebar-inverse bg-dark position-absolute"
+  >
+    <!-- BEGIN scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+      <!-- BEGIN nav -->
+      <ul class="nav d-block position-relative p-0 m-0">
+        <li class="nav-profile d-table content
+          text-white p-3">
+          <div class="image float-start overflow-hidden rounded-circle ">
+            <img class="h-100" alt="avatar"
+                 src="https://images.pexels.com/photos/775687/pexels-photo-775687.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            />
+          </div>
+          <div class="info ms-md-5 pt-1">
+            <h4 class="fw-medium small">Template CIM</h4>
+            <p class="m-0 lh-1">UXUI Frontend Developer</p>
+          </div>
+        </li>
+        <li class="nav-divider bg-gray overflow-hidden"></li>
+        <li class="nav-header mt-0 p-2  ps-3">
+          <dt>Navigation</dt>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/table'">
+            <span class="material-symbols-outlined  opacity-25">table</span>
+            <span class="mx-3">Table</span>
+          </a>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/button'">
+            <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            <span class="mx-3">Button</span>
+          </a>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/form'">
+            <span class="material-symbols-outlined opacity-25">select_check_box</span>
+            <span class="mx-3">Form</span>
+          </a>
+        </li>
+        <li class="nav-divider"></li>
+        <li class="nav-header p-2  ps-3">
+          <dt>Components</dt>
+        </li>
 
 
-      <li class="has-sub">
-        <a class="text-decoration-none fw-medium d-flex align-items-center"
-           [routerLink]="'/table'">
-          <span class="material-symbols-outlined  opacity-25">table</span>
-          <span class="mx-3">Table</span>
-        </a>
-      </li>
-      <li class="has-sub">
-        <a class="text-decoration-none fw-medium d-flex align-items-center"
-           [routerLink]="'/button'">
-          <span class="material-symbols-outlined  opacity-25">select_check_box</span>
-          <span class="mx-3">Button</span>
-        </a>
-      </li>
-      <li class="has-sub">
-        <a class="text-decoration-none fw-medium d-flex align-items-center"
-           [routerLink]="'/form'">
-          <span class="material-symbols-outlined opacity-25">select_check_box</span>
-          <span class="mx-3">Form</span>
-        </a>
-      </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/table'">
+            <span class="material-symbols-outlined  opacity-25">table</span>
+            <span class="mx-3">Table</span>
+          </a>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/button'">
+            <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            <span class="mx-3">Button</span>
+          </a>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/form'">
+            <span class="material-symbols-outlined opacity-25">select_check_box</span>
+            <span class="mx-3">Form</span>
+          </a>
+        </li>
 
 
+        <li class="nav-divider"></li>
+        <li class="nav-header p-2  ps-3">
+          <dt>Users</dt>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/table'">
+            <span class="material-symbols-outlined  opacity-25">table</span>
+            <span class="mx-3">Table</span>
+          </a>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/button'">
+            <span class="material-symbols-outlined   opacity-25">select_check_box</span>
+            <span class="mx-3">Button</span>
+          </a>
+        </li>
+        <li class="has-sub">
+          <a class="text-white text-decoration-none small fw-medium d-flex align-items-center"
+             [routerLink]="'/form'">
+            <span class="material-symbols-outlined opacity-25">select_check_box</span>
+            <span class="mx-3">Form</span>
+          </a>
+        </li>
+        <li class="nav-divider"></li>
 
-
-      <li class="nav-divider"></li>
-      <li class="nav-header">Users</li>
-      <li><a href="profile.html"><i class="ti-user"></i><span>Profile</span></a></li>
-      <li><a href="calendar.html"><i class="ti-calendar"></i> <span>Calendar</span></a></li>
-      <li><a href="settings.html"><i class="ti-settings"></i><span>Settings</span></a></li>
-      <li><a href="helper.html"><i class="ti-help-alt"></i><span>Helper</span></a></li>
-      <li class="has-sub">
-        <a href="javascript:;">
-          <b class="caret caret-right pull-right"></b>
-          <i class="ti-align-left"></i>
-          <span>Menu Level</span>
-        </a>
-        <ul class="sub-menu">
-          <li class="has-sub">
-            <a href="javascript:;">
-              <b class="caret caret-right pull-right"></b>
-              Menu 1.1
-            </a>
-            <ul class="sub-menu">
-              <li class="has-sub">
-                <a href="javascript:;">
-                  <b class="caret caret-right pull-right"></b>
-                  Menu 2.1
-                </a>
-                <ul class="sub-menu">
-                  <li><a href="javascript:;">Menu 3.1</a></li>
-                  <li><a href="javascript:;">Menu 3.2</a></li>
-                </ul>
-              </li>
-              <li><a href="javascript:;">Menu 2.2</a></li>
-              <li><a href="javascript:;">Menu 2.3</a></li>
-            </ul>
-          </li>
-          <li><a href="javascript:;">Menu 1.2</a></li>
-          <li><a href="javascript:;">Menu 1.3</a></li>
-        </ul>
-      </li>
-      <li class="nav-divider"></li>
-
-      <li class="nav-divider"></li>
-      <li class="nav-copyright">&copy; 2017 seanTheme All Right Reserved</li>
-    </ul>
-    <!-- END nav -->
+        <li class="nav-copyright pt-1 small p-3 text-secondary">&copy; 2017 seanTheme All Right Reserved</li>
+      </ul>
+      <!-- END nav -->
+    </div>
+    <!-- END scrollbar -->
+    <!-- BEGIN sidebar-minify-btn -->
+    <div role="button" (click)="onHideSidebar()"
+         class="sidebar-minify-btn position-absolute text-decoration-none text-white text-center rounded-0 bg-secondary "
+    >
+      <span class="d-block material-symbols-outlined">arrow_back</span>
+    </div>
+    <!-- END sidebar-minify-btn -->
   </div>
-  <!-- END scrollbar -->
-  <!-- BEGIN sidebar-minify-btn -->
-  <a href="#" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ti-arrow-left"></i></a>
-  <!-- END sidebar-minify-btn -->
-</div>
+} @else {
+  <div   class="sidebar-minimize2 col-2 sidebar bg-dark position-absolute">
+    <!-- BEGIN scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+      <!-- BEGIN nav -->
+      <ul class="nav d-block position-relative p-0 m-0">
+        <li class="nav-profile d-table content
+          text-white p-3">
+          <div class="image float-start overflow-hidden rounded-circle ">
+            <img class="h-100" alt="avatar"
+                 src="https://images.pexels.com/photos/775687/pexels-photo-775687.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            />
+          </div>
+
+        </li>
+        <li class="nav-divider bg-gray overflow-hidden"></li>
+        <li class="nav-header mt-0 p-1  ps-3">
+          <dt>Navi...</dt>
+        </li>
+        <li class="has-sub">
+          <div  [title]="'Table'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/table'">
+              <span class="material-symbols-outlined  opacity-25">table</span>
+            </a>
+          </div>
+        </li>
+        <li class="has-sub">
+          <div  [title]="'Button'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/button'">
+              <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            </a>
+          </div>
+        </li>
+        <li class="has-sub">
+          <div [title]="'Form'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/form'">
+              <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-divider"></li>
+        <li class="nav-header p-2  ps-3">
+          <dt>Comp...</dt>
+        </li>
+
+
+        <li class="has-sub">
+          <div  [title]="'Table'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/table'">
+              <span class="material-symbols-outlined  opacity-25">table</span>
+            </a>
+          </div>
+        </li>
+        <li class="has-sub">
+          <div  [title]="'Button'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/button'">
+              <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            </a>
+          </div>
+        </li>
+        <li class="has-sub">
+          <div [title]="'Form'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/form'">
+              <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-divider"></li>
+        <li class="nav-header p-2  ps-3">
+          <dt>Users</dt>
+        </li>
+        <li class="has-sub">
+          <div  [title]="'Table'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/table'">
+              <span class="material-symbols-outlined  opacity-25">table</span>
+            </a>
+          </div>
+        </li>
+        <li class="has-sub">
+          <div  [title]="'Button'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/button'">
+              <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            </a>
+          </div>
+        </li>
+        <li class="has-sub">
+          <div [title]="'Form'">
+            <a
+              class="text-white text-decoration-none small nav-header mt-0 p-2  ps-3 d-flex align-items-center"
+              [routerLink]="'/form'">
+              <span class="material-symbols-outlined  opacity-25">select_check_box</span>
+            </a>
+          </div>
+        </li>
+        <li class="nav-divider"></li>
+
+      </ul>
+      <!-- END nav -->
+    </div>
+    <!-- END scrollbar -->
+    <!-- BEGIN sidebar-minify-btn -->
+    <div role="button" (click)="onHideSidebar()"
+         class="sidebar-minify-btn position-absolute text-decoration-none text-white text-center rounded-0 bg-secondary "
+    >
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </div>
+    <!-- END sidebar-minify-btn -->
+  </div>
+}
 <!-- END #sidebar -->

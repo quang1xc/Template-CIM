@@ -1,0 +1,58 @@
+.sidebar-inverse {
+  height: calc(100vh - (54px + 8px));
+  width: 15vw;
+  transition: width 1s ease-in-out;
+}
+.sidebar-minimize2 {
+  width: 4vw;
+  height: calc(100vh - (54px + 8px));
+  transition: width 1s ease-in-out;
+}
+.sidebar .nav {
+  list-style-type: none;
+}
+
+.sidebar .nav > li.nav-profile:after,
+.sidebar .nav > li.nav-profile:before {
+  content: "";
+  clear: both;
+}
+.nav > li.nav-profile .image {
+  max-width: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+}
+
+.sidebar .nav > li.nav-profile .info p {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.nav-divider {
+  background: #333;
+  height: 1px;
+  margin: 0.5625rem 0;
+}
+.nav > li.nav-header {
+  font-size: 0.625rem;
+  color: #888;
+}
+
+.sidebar .nav > li > a {
+  padding: 0.3125rem 0.9375rem;
+}
+
+.sidebar .sidebar-minify-btn {
+  right: 0;
+  bottom: 0.9375rem;
+  z-index: 1040;
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+.sidebar.sidebar-inverse .nav > li > a:focus,
+.sidebar.sidebar-inverse .nav > li > a:hover {
+  background: #000;
+}
+
