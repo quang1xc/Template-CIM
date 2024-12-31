@@ -45,6 +45,16 @@ export const routes: Routes = [
       showSidebar: true,
     },
     canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./errors/404/error-404.component').then((c) => c.Error404Component),
+    data: {
+      showHeader: false,
+      showSidebar: false,
+      showLogin: true,
+    },
   }
 
 ];
