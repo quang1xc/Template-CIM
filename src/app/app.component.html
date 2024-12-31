@@ -1,13 +1,14 @@
-<!--<app-message></app-message>-->
 
 @if(showHeader()){
   <app-header></app-header>
 }
 
-<div [className]="showLogin() ? 'w-100' : 'row'">
+<div [className]="showLogin() ? 'w-100' : 'row mt-0 me-0'">
   @if(showSidebar()){
-    <div class="col-2">
-      <app-sidebar></app-sidebar>
+    <div [className]="isShowSidebar() ? 'col-1' : 'col-2'">
+
+      <app-sidebar [isShowSidebar]="isShowSidebar">
+      </app-sidebar>
       <div class="w-100"></div>
     </div>
   }
@@ -15,5 +16,4 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-<app-notification #notification></app-notification>
 
