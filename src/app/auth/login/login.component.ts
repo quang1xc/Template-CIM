@@ -1,16 +1,15 @@
-import {Component, ElementRef, OnInit, signal} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router, RouterLink} from '@angular/router';
+import {Router} from '@angular/router';
 import {LoginInterface} from '../../models/login.interface';
-// import {Notification} from '../../common/notification';
 // Services
 import {ConfigService} from '../../services/config.service';
 import {StorageService} from '../../services/storage.service';
 import {AuthService} from '../../services/auth.service';
-import {EStorageKey} from '../../constants/storage-key.enum';
-import {IUserInfo} from '../../models/user-info.interface';
-import {NotificationService} from '../../services/notification.service';
 import {ToastrService} from 'ngx-toastr';
+
+import {EStorageKey} from '../../constants/storage-key.enum';
+
 
 
 @Component({
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private storageService: StorageService,
-    private notificationService: NotificationService,
     private toastr: ToastrService
   ) {
     this.configService._configSubject.next('false');
@@ -63,16 +61,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // if (this.authService.isAuthenticate()) {
-    //   this.router.navigate(['/button']);
-    // }
+    const isLogin = this.storageService.getItem('token');
+    if (isLogin) {
+      this.router.navigate(['/button']);
+    }
   }
 
 
   SignIn() {
     this.model = this.loginForm.value;
-    console.log(this.loginForm, this.loginForm.valid, this.model);
-    // return;
     if (this.loginForm.valid) {
       this.authService.login(this.model.username, this.model.password)
         .subscribe({
@@ -88,30 +85,20 @@ export class LoginComponent implements OnInit {
               this.profileData = data;
               if (this.profileData) {
                 this.configService.loadingSubject.next('false');
-                // this.notificationService.show('Đăng nhập thành công!','success');
-                this.showSuccess()
-                console.log('thanh cong')
-                return
+                this.toastr.success('Đăng nhập thành công!');
                 this.router.navigate(['/button']);
               } else {
                 this.configService.loadingSubject.next('false');
               }
             } else {
-              this.showSuccess();
-              // this.notificationService.show(
-              //     'Tên đăng nhập hoặc mật khẩu không đúng!', 'error',
-              // );
+              this.toastr.warning('Tên đăng nhập hoặc mật khẩu không đúng!');
             }
           },
           error: (error: { status: number; }) => {
             if (error.status === 500 || error.status === 0) {
-              this.notificationService.show(
-                  'Lỗi kết nỗi với server!', 'error'
-              );
+              this.toastr.error('Lỗi kết nỗi với server!');
             } else {
-              this.notificationService.show(
-                  'Tên đăng nhập và mật khẩu không đúng. Vui lòng kiểm tra lại!','error'
-              );
+              this.toastr.warning('Tên đăng nhập và mật khẩu không đúng!');
             }
           }
         });
@@ -119,7 +106,6 @@ export class LoginComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 
   onErrorMessage(controlName: string, formGroup: FormGroup): string {

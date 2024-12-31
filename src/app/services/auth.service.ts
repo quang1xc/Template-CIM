@@ -16,7 +16,6 @@ import {StorageService} from './storage.service';
     providedIn: 'root'
 })
 export class AuthService {
-
     private readonly API_URL = 'http://103.72.98.97';
 
     constructor(
