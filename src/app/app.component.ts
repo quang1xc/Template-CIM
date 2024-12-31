@@ -7,37 +7,31 @@ import {filter} from 'rxjs';
 // Components
 import {HeaderTemplate} from './layouts/header/header.template';
 import {SidebarTemplate} from './layouts/sidebar/sidebar';
-import {NotificationComponent} from './notification/notification.component';
-import {NotificationService} from './services/notification.service';
 import {AuthGuard} from './common/auth.guard';
-//toast
+import {LayoutService} from './services/layout.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterModule,
-    HeaderTemplate,
     SidebarTemplate,
-    NotificationComponent,
-    // Components
+    HeaderTemplate,
   ],
   templateUrl: './app.component.html',
   providers: [AuthGuard],
   styleUrls: [],
-
 })
 export class AppComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
-  @ViewChild('notification') notification!: NotificationComponent;
 
   showHeader = signal(false)
   showSidebar = signal(false)
   showLogin = signal(false)
+  isShowSidebar = signal(false);
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private notificationService: NotificationService) {
+  constructor(private router: Router,
+              private layoutService: LayoutService,) {
   }
 
   ngOnInit(): void {
@@ -48,7 +42,6 @@ export class AppComponent implements OnInit {
         while (currentRoute.firstChild) {
           currentRoute = currentRoute.firstChild;
         }
-
         currentRoute.data.subscribe(data => {
           console.log(data['showHeader'])
           this.showHeader.set(data['showHeader']);
@@ -57,8 +50,16 @@ export class AppComponent implements OnInit {
         });
       })
 
-  }
+    this.layoutService.statusSidebar.subscribe((data) => {
+      if (data) {
+        console.log(data);
+        this.isShowSidebar.update(()=>data.status);
+      } else {
+        this.isShowSidebar.set(false);
+      }
+    });
 
+  }
 
 
 }
